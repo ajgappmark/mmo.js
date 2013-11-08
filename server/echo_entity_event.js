@@ -18,8 +18,10 @@ function PlayerAI(player){
 PlayerAI.prototype.receive = function(event){
    // this.player.conn.send("Before you sent: "+this.lastMessage+"\n");
     //this.player.conn.send("You just sent: "+event+"\n");
-    this.player.conn.send(Protocol.serialize(new Event("previous", [this.lastMessage])));
-    this.player.conn.send(Protocol.serialize(new Event("current", [event.arguments["data"])));
+  //  this.player.conn.send(Protocol.serialize(new Event("previous", [this.lastMessage])));
+//    this.player.conn.send(Protocol.serialize(new Event("current", [event.arguments["data"])));
+    this.player.trigger(new Event("previous", {"message":this.lastMessage}));
+    this.player.trigger(new Event("previous", {"message":events.arguments["message"]}));
     this.lastMessage = event.arguments["data"];
 };
 

@@ -11,6 +11,8 @@ function Entity(className, conn, ai){
 	this.conn = conn; // connection, all entity require them. For players, this is some sort of socket. For NPCs and game objects, this is an AI class
     this.ai = new ai(this); // the ai for the object. This is an extension for handling the server-side logic of the entity;
 }
-
+Entitiy.prototype.trigger = function(e){
+    this.player.conn.send(Protocol.serialize(e));
+};
 
 module.exports = Entity;
