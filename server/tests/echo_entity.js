@@ -5,9 +5,9 @@ Copyright (C) bobbybee 2013
 ALL RIGHTS RESERVED
 */
 
-var Connection = require("../Connection");
-var listen = require("../listen/listen.js");
-var Entity = require('../entity');
+var Connection = require("../net/Connection");
+var listen = require("../net/listen/listen.js");
+var Entity = require('../net/entity');
 
 function PlayerAI(player){
     this.player = player;
