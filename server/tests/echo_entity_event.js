@@ -5,11 +5,11 @@ Copyright (C) bobbybee 2013
 ALL RIGHTS RESERVED
 */
 
-var Connection = require("./Connection");
-var listen = require("./listen/listen.js");
-var Entity = require('./entity');
-var Event = require('./event');
-var Protocol = require('./protocol');
+var Connection = require("../Connection");
+var listen = require("../listen/listen.js");
+var Entity = require('../entity');
+var Event = require('../event');
+var Protocol = require('../protocol');
 
 function PlayerAI(player){
     this.player = player;
