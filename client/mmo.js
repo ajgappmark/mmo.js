@@ -15,7 +15,7 @@ function MMO(host, port){
 }
 
 MMO.prototype.connect = function(){
-    this.sock = new WebSocket("ws://"+this.hort+":"+this.port);
+    this.sock = new WebSocket("ws://"+this.host+":"+this.port);
         
     this.sock.onopen = this.onopen;
     this.sock.onclose = this.onclose;
@@ -24,11 +24,13 @@ MMO.prototype.connect = function(){
 };
 
 MMO.prototype.onopen = function(e){
-    
+    this.isConnected = true;
+    console.log("WebSocket connected");
 };
 
 MMO.prototype.onclose = function(e){
-    
+    this.isConnected = false;
+    console.log("WebSocket disconnected");
 };
 
 MMO.prototype.onmessage = function(e){
@@ -38,7 +40,8 @@ MMO.prototype.onmessage = function(e){
 };
 
 MMO.prototype.onerror = function(e){
-    
+    console.log("ERROR: ");
+    console.log(JSON.stringify(e));
 };
 
 MMO.prototype.send = function(m){

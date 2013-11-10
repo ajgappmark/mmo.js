@@ -9,6 +9,8 @@ ALL RIGHTS RESERVED
 // Protocol definition
 // 11-8-13: currently using simple JSON
 
+var Protocol = {};
+
 Protocol.serialize = function(event){
     return JSON.stringify(event);
 };

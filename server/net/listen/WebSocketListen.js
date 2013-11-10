@@ -12,13 +12,18 @@ var Connection = require('../Connection');
 module.exports = function(port, connectionHandler){
     this.port = port;
     
-    var httpServer = http.createServer(function(req, res){
+    this.httpServer = http.createServer(function(req, res){
         res.end("TO-DO: Implement toy webserver");
+        console.log("t");
     }).listen(this.port);
     
-    var wsServer = new WebSocketServer({httpServer:httpServer});
-    wsServer.on('request', function(req){
+    this.wsServer = new WebSocketServer({httpServer:this.httpServer});
+    this.wsServer.on('request', function(req){
+        console.log(req);
+        
         var conn = req.accept(null, req.origin);
+        
+        console.log(conn);
         
         var connObj = new Connection.Connection(Connection.WEB_SOCKETS, conn);
         connObj.onConnect();
