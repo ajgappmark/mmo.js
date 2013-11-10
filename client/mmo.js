@@ -32,7 +32,9 @@ MMO.prototype.onclose = function(e){
 };
 
 MMO.prototype.onmessage = function(e){
-    var d = e.data;
+    var message = Protocol.deserialize(e.data);
+    
+    console.log(message);
 };
 
 MMO.prototype.onerror = function(e){
