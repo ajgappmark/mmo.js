@@ -40,3 +40,7 @@ MMO.prototype.onmessage = function(e){
 MMO.prototype.onerror = function(e){
     
 };
+
+MMO.prototype.send = function(m){
+    this.sock.send(Protocol.serialize(m));
+};
