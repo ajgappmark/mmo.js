@@ -1,8 +1,6 @@
 /* RawTCPListen.js
 Listens for RawTCP connections
 mmo.js
-Copyright (C) bobbybee 2013
-ALL RIGHTS RESERVED
 */
 
 var net = require('net');

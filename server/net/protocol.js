@@ -2,8 +2,6 @@
 protocol.js
 The low-level event (de)serializing code
 mmo.js
-Copyright (C) bobbybee 2013
-ALL RIGHTS RESERVED
 */
 
 // Protocol definition

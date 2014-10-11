@@ -2,8 +2,6 @@
 entity.js
 Entity object for representing interactive game world objects
 mmo.js
-Copyright (C) bobbybee 2013
-ALL RIGHTS RESERVED
 */
 
 function Entity(className, conn, ai){

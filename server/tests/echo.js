@@ -1,8 +1,6 @@
 /* echo.js
 A sample echo for testing listen.js. Telnet to localhost:1234 for testing
 mmo.js
-Copyright (C) bobbybee 2013
-ALL RIGHTS RESERVED
 */
 
 var Connection = require("../net/Connection");

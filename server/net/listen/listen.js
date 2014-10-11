@@ -1,8 +1,6 @@
 /* listen.js
 Protocol polyfill for listening for connections
 mmo.js
-Copyright (C) bobbybee 2013
-ALL RIGHTS RESERVED
 */
 
 var RawTCPListen = require('./RawTCPListen');

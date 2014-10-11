@@ -2,8 +2,6 @@
 Connection.js
 Connection object for mmo.js
 MMO.js
-Copyright (C) bobbybee 2013
-ALL RIGHTS RESERVED
 */
 
 // connection type enuumeration
