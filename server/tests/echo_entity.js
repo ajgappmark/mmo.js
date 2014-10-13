@@ -5,7 +5,7 @@ mmo.js
 
 var Connection = require("../net/Connection");
 var listen = require("../net/listen/listen.js");
-var Entity = require('../net/entity');
+var Entity = require('../entity');
 
 function PlayerAI(player){
     this.player = player;
@@ -17,9 +17,8 @@ PlayerAI.prototype.receive = function(event){
     this.lastMessage = event;
 };
 
-
 new listen(Connection.RAW_TCP, 1234, function(connection){
-    var player = new Entity("Player", connection, PlayerAI);
+    var player = new Entity("Player", PlayerAI, connection);
 	connection.send("Hello!\n");
 
 	connection.onData = function(d){

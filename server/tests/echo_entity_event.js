@@ -5,8 +5,8 @@ mmo.js
 
 var Connection = require("../net/Connection");
 var listen = require("../net/listen/listen.js");
-var Entity = require('../net/entity');
-var Event = require('../net/event');
+var Entity = require('../entity');
+var Event = require('../event');
 var Protocol = require('../net/protocol');
 
 function PlayerAI(player){
@@ -14,18 +14,15 @@ function PlayerAI(player){
     this.lastMessage = "";
 }
 PlayerAI.prototype.receive = function(event){
-   // this.player.conn.send("Before you sent: "+this.lastMessage+"\n");
-    //this.player.conn.send("You just sent: "+event+"\n");
-  //  this.player.conn.send(Protocol.serialize(new Event("previous", [this.lastMessage])));
-//    this.player.conn.send(Protocol.serialize(new Event("current", [event.arguments["data"])));
+    console.log(event);
     this.player.trigger(new Event("previous", {"message":this.lastMessage}));
-    this.player.trigger(new Event("previous", {"message":events.arguments["message"]}));
-    this.lastMessage = event.arguments["data"];
+    this.player.trigger(new Event("current", {"message":event.arguments["message"]}));
+    this.lastMessage = event.arguments["message"];
 };
 
 
 new listen(Connection.RAW_TCP, 1234, function(connection){
-    var player = new Entity("Player", connection, PlayerAI);
+    var player = new Entity("Player", PlayerAI, connection);
 	connection.send("Hello!\n");
 
 	connection.onData = function(d){
