@@ -2,8 +2,6 @@
 mmo.js
 mmo.js
 WebSocket client
-Copyright (C) 2013 bobbybee
-ALL RIGHTS RESERVED
 */
 
 function MMO(host, port){
